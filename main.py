@@ -27,9 +27,7 @@ import random
 @bot.tree.command(name = "飲料", description = "今天喝甚麼？")
 async def 飲料(interaction: discord.Interaction):
     divinations= [ "萬波","迷客夏","五十嵐"
-,"可不可","teatop",
-"清心","芳逸",
-mr wish","CoCo","鶴茶樓","五桐號"
+,"可不可","teatop","清心","芳逸","mr wish","CoCo","鶴茶樓","五桐號"
     ]
     result = random.choice(divinations)
     await interaction.response.send_message(f"今天我想來點：{result}")
