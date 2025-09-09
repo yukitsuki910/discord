@@ -27,16 +27,16 @@ import random
 @bot.tree.command(name = "飲料", description = "今天喝甚麼？")
 async def 飲料(interaction: discord.Interaction):
     divinations= [ "萬波","迷客夏","五十嵐"
-,"可不可","河堤上的貓",
-"甲文青","三分春色",
-"酸奶多","CoCo","鶴茶樓","五桐號"
+,"可不可","teatop",
+"清心","芳逸",
+mr wish","CoCo","鶴茶樓","五桐號"
     ]
     result = random.choice(divinations)
     await interaction.response.send_message(f"今天我想來點：{result}")
 
 @bot.tree.command(name = "晚餐", description = "還在煩惱吃甚麼嗎？")
 async def 晚餐(interaction: discord.Interaction):
-    divinations = [ "青虎食堂","開心丼飯","胖焗","偷斯","蛋包先生","湯食主義","吉野家","八方雲集","四海遊龍","自助餐","黑乾麵","南台灣","日式炒麵","ok泡麵"
+    divinations = [ "拉麵","八方","韓式料理"," 丼飯","八方","麥當勞","炒麵","泡麵"
     ]
     result = random.choice(divinations)
     await interaction.response.send_message(f"今天的晚餐就吃：{result}")
