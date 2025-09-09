@@ -53,5 +53,22 @@ async def 抽籤(interaction: discord.Interaction):
     await interaction.response.send_message(f"你抽到的籤是：{result}")
 
 
+# --- 假 web server，讓 Render 偵測用 ---
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"Bot is running!")
+
+def run_server():
+    port = int(os.environ.get("PORT", 3000))
+    server = HTTPServer(("0.0.0.0", port), Handler)
+    print(f"Listening on port {port}")
+    server.serve_forever()
+
+# 開一個執行緒跑 web server，不會卡住 bot
+threading.Thread(target=run_server).start()
+
 
 bot.run(os.getenv("TOKEN"))
